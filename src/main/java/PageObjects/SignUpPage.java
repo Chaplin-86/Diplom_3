@@ -1,7 +1,6 @@
 package PageObjects;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -76,14 +75,14 @@ public class SignUpPage {
     }
 
     // Клик по кнопке 'Войти'
-    public LogInPage clickSignInButton() {
+    public SignInPage clickSignInButton() {
         driver.findElement(signInButton).click();
 
-        return new LogInPage(driver);
+        return new SignInPage(driver);
     }
 
     //Метод заполнения полей 'Имя', 'Email', 'Пароль' при регистрации
-    public LogInPage signUp(String name, String email, String password){
+    public SignInPage signUp(String name, String email, String password){
 
         isSignUpHeaderVisible();
         enterName(name);
@@ -91,7 +90,7 @@ public class SignUpPage {
         enterPassword(password);
         clickSignUpButton();
 
-        return new LogInPage(driver);
+        return new SignInPage(driver);
     }
 
     //Метод получения сообщения об ошибке при использовании невалидного пароля

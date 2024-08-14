@@ -35,26 +35,27 @@ public class MainPage {
     private final By fillingTab = By.xpath(".//div[span[text()='Начинки']]");
 
     //Заголовок "Булки"
-    private final By buns = By.xpath(".//h2[text()='Булки'");
+    private final By buns = By.xpath(".//h2[text()='Булки']");
 
     //Заголовок "Соусы"
-    private final By sauce = By.xpath(".//h2[text()='Соусы'");
+    private final By sauce = By.xpath(".//h2[text()='Соусы']");
 
     //Заголовок "Начинки"
-    private final By filling = By.xpath(".//h2[text()='Начинки'");
+    private final By filling = By.xpath(".//h2[text()='Начинки']");
 
 
     public MainPage(WebDriver driver) {
         this.driver = driver;
     }
 
-    //Метод нажатия на кнопку 'Личный кабинет'
-       public LogInPage clickProfileButton() {
+    //Метод нажатия на кнопку 'Личный кабинет' неавторизованным пользователем
+       public SignInPage clickProfileButton() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_TIMEOUT));
         wait.until(ExpectedConditions.elementToBeClickable(profileButton));
 
         driver.findElement(profileButton).click();
-        return new LogInPage(driver);
+
+        return new SignInPage(driver);
     }
 
     //Метод нажатия на кнопку 'Личный кабинет' авторизованным пользованием
@@ -63,17 +64,32 @@ public class MainPage {
         wait.until(ExpectedConditions.elementToBeClickable(profileButton));
 
         driver.findElement(profileButton).click();
+
         return new ProfilePage(driver);
     }
 
 
     //Метод нажатия на кнопку 'Войти в аккаунт'
-    public LogInPage clickLoginButton() {
+    public SignInPage clickLoginButton() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_TIMEOUT));
         wait.until(ExpectedConditions.elementToBeClickable(logInButton));
 
         driver.findElement(logInButton).click();
-        return new LogInPage(driver);
+        return new SignInPage(driver);
+    }
+
+    public boolean isOrderButtonVisible() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_TIMEOUT));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(orderButton));
+
+        return driver.findElement(orderButton).isDisplayed();
+    }
+
+    public boolean isConstructorHeaderVisible(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_TIMEOUT));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(constructorHeader));
+
+        return driver.findElement(constructorHeader).isDisplayed();
     }
 
     //Метод нажатия на вкладку 'Булки'

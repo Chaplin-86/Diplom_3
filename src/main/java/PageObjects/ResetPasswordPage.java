@@ -2,7 +2,6 @@ package PageObjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ResetPasswordPage {
     private final WebDriver driver;
@@ -14,10 +13,10 @@ public class ResetPasswordPage {
     }
 
     //Клик по кнопке 'Войти'
-    public LogInPage clickSignInButton() {
+    public SignInPage clickSignInButton() {
         driver.findElement(signInButton).click();
 
-        return new LogInPage(driver);
+        return new SignInPage(driver);
 
     }
 }

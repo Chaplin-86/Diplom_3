@@ -11,12 +11,15 @@ import java.time.Duration;
 
 import static praktikum.EnvConfig.DEFAULT_TIMEOUT;
 
-public class LogInPage {
+public class SignInPage {
 
     private final WebDriver driver;
 
     //Заголовок 'Вход'
     private final By signInHeader = By.xpath("//h2[text()='Вход']");
+
+    //Кнопка 'Личный кабинет'
+    public static By profileButton = By.xpath(".//p[contains(text(),'Личный Кабинет')]");
 
     //Поле 'Email'
     private final By emailField = By.xpath("//label[contains(text(),'Email')]/../input");
@@ -33,34 +36,44 @@ public class LogInPage {
     //Кнопка 'Восстановить пароль'
     private final By resetPasswordButton = By.xpath("//a[contains(text(),'Восстановить пароль')]");
 
-    public LogInPage(WebDriver driver) {
+    public SignInPage(WebDriver driver) {
         this.driver = driver;
     }
 
     //Метод обнаружения заголовка 'Вход'
-    private boolean isSignInHeaderVisible() {
+    public boolean isSignInHeaderVisible() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_TIMEOUT));
         wait.until(ExpectedConditions.visibilityOfElementLocated(signInHeader));
 
         return driver.findElement(signInHeader).isDisplayed();
     }
 
+    //Клик по кнопке 'Личный кабинет'
+    public SignInPage clickProfileButton() {
+        driver.findElement(profileButton).click();
+
+        return this;
+    }
+
     //Заполнение поля 'Email'
-    public LogInPage enterEmail(String email) {
+    public SignInPage enterEmail(String email) {
         driver.findElement(emailField).sendKeys(email);
 
         return this;
     }
 
     //Заполнение поля 'Пароль'
-    public LogInPage enterPassword(String password) {
+    public SignInPage enterPassword(String password) {
         driver.findElement(passwordField).sendKeys(password);
 
         return this;
     }
 
     //Клик по кнопке 'Войти'
-    public LogInPage clickSignInButton() {
+    public SignInPage clickSignInButton() {
+        WebElement element = driver.findElement(signInButton);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+
         driver.findElement(signInButton).click();
 
         return this;
@@ -86,10 +99,9 @@ public class LogInPage {
         return new ResetPasswordPage(driver);
     }
 
-    //Метод авторизации при нажатии кнопки 'Личный кабинет' на главной странице
+    //Метод авторизации при нажатии кнопки 'Войти в аккаунт' на главной странице
     public MainPage signIn(String email, String password){
 
-        clickSignInButton();
         isSignInHeaderVisible();
         enterEmail(email);
         enterPassword(password);

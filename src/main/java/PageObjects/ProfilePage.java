@@ -19,7 +19,7 @@ public class ProfilePage {
     private final By logo = By.className("AppHeader_header__logo__2D0X2");
 
     //Текст описания функционала профиля
-    private final By profileFunctionText = By.xpath(".//p[text() = 'В этом разделе вы можете изменить свои персональные данные']");
+    private final By profileHeader = By.xpath("//a[text()='Профиль']");
 
     //Кнопка 'Выход'
     private final By logOutButton = By.xpath(".//button[text()='Выход']");
@@ -29,21 +29,21 @@ public class ProfilePage {
     }
 
     //Метод отображения описания функционала профиля
-    private boolean isProfileFunctionTextVisible() {
+    public boolean isProfileHeaderVisible() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_TIMEOUT));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(profileFunctionText));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(profileHeader));
 
-        return driver.findElement(profileFunctionText).isDisplayed();
+        return driver.findElement(profileHeader).isDisplayed();
     }
 
     //Клик по кнопке 'Выход'
-    public LogInPage clickLogOutButton() {
+    public SignInPage clickLogOutButton() {
         WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(DEFAULT_TIMEOUT));
         wait.until(ExpectedConditions.visibilityOfElementLocated(logOutButton));
 
         driver.findElement(logOutButton).click();
 
-        return new LogInPage(driver);
+        return new SignInPage(driver);
     }
 
     //Клик по кнопке 'Конструктор'

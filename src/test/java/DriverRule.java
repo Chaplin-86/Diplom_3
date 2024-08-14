@@ -1,6 +1,6 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.rules.ExternalResource;
 import org.openqa.selenium.WebDriver;
+import org.junit.rules.ExternalResource;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
@@ -32,8 +32,8 @@ public class DriverRule extends ExternalResource {
     }
 
     private void initYandex() {
-        WebDriverManager.chromedriver().driverVersion("124.0.6367.207").setup();
-        ChromeOptions options = new ChromeOptions().setBinary("C:\\Program Files (x86)\\Yandex\\YandexBrowser\\Yandex.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Admin\\WebDriver\\bin\\yandexdriver.exe");
+        ChromeOptions options = new ChromeOptions().setBinary("C:\\Users\\Admin\\AppData\\Local\\Yandex\\YandexBrowser\\Application\\browser.exe");
         driver = new ChromeDriver(options);
 
     }
