@@ -1,8 +1,8 @@
-import Api.User;
-import Api.UserClient;
-import PageObjects.SignInPage;
-import PageObjects.MainPage;
-import PageObjects.ProfilePage;
+import api.User;
+import api.UserClient;
+import pageobjects.SignInPage;
+import pageobjects.MainPage;
+import pageobjects.ProfilePage;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.RestAssured;
 import io.restassured.response.ValidatableResponse;
@@ -12,7 +12,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
-import static Api.UserGenerator.randomUser;
+import static api.UserGenerator.randomUser;
 import static praktikum.EnvConfig.BASE_URL;
 
 public class PersonalProfileTests {
@@ -77,7 +77,6 @@ public class PersonalProfileTests {
                 .clickProfileButton();
 
         Boolean actual = new SignInPage(driver).isSignInHeaderVisible();
-
         System.out.println(actual);
     }
 

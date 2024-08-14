@@ -1,9 +1,9 @@
-import Api.User;
-import Api.UserClient;
-import PageObjects.SignInPage;
-import PageObjects.MainPage;
-import PageObjects.ResetPasswordPage;
-import PageObjects.SignUpPage;
+import api.User;
+import api.UserClient;
+import pageobjects.SignInPage;
+import pageobjects.MainPage;
+import pageobjects.ResetPasswordPage;
+import pageobjects.SignUpPage;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.RestAssured;
 import io.restassured.response.ValidatableResponse;
@@ -13,7 +13,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
-import static Api.UserGenerator.randomUser;
+import static api.UserGenerator.randomUser;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertEquals;
@@ -61,7 +61,6 @@ public class LogInTests {
                 .signIn(user.getEmail(), user.getPassword());
 
         Boolean actual = new MainPage(driver).isOrderButtonVisible();
-
         System.out.println(actual);
 
     }

@@ -41,5 +41,6 @@ public class DriverRule extends ExternalResource {
     private void initChrome() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
+
     }
 }

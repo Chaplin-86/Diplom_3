@@ -1,4 +1,4 @@
-package Api;
+package api;
 
 import io.qameta.allure.Step;
 import io.restassured.http.ContentType;

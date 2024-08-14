@@ -1,4 +1,4 @@
-import PageObjects.MainPage;
+import pageobjects.MainPage;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Rule;
 import org.junit.Test;
@@ -25,6 +25,7 @@ public class ConstructorTests {
         Boolean actual = new MainPage(driver).isBubsVisible();
 
         System.out.println(actual);
+
     }
 
 
