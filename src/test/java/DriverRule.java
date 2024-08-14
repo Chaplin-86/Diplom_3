@@ -42,5 +42,4 @@ public class DriverRule extends ExternalResource {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
     }
-
 }

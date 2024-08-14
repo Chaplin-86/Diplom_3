@@ -58,7 +58,6 @@ public class PersonalProfileTests {
         new MainPage(driver)
                 .clickProfileButtonAuth();
 
-
         Boolean actual = new ProfilePage(driver).isProfileHeaderVisible();
 
         System.out.println(actual);

@@ -27,6 +27,7 @@ public class ConstructorTests {
         System.out.println(actual);
     }
 
+
     @Test
     @DisplayName("Проверка перехода к разделу 'Соусы'")
     public void goToSauceTabTest() {

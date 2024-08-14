@@ -65,7 +65,6 @@ public class LogInTests {
         System.out.println(actual);
 
     }
-
     @Test
     @DisplayName("Вход через кнопку «Личный кабинет»")
     public void signInViaProfileButtonTest() {
