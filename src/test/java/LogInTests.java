@@ -14,10 +14,7 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
 import static api.UserGenerator.randomUser;
-import static org.hamcrest.CoreMatchers.notNullValue;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+
 import static praktikum.EnvConfig.BASE_URL;
 
 public class LogInTests {

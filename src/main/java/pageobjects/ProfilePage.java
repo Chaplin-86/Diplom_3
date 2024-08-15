@@ -1,5 +1,6 @@
 package pageobjects;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -18,7 +19,7 @@ public class ProfilePage {
     //Логотип
     private final By logo = By.className("AppHeader_header__logo__2D0X2");
 
-    //Текст описания функционала профиля
+    //Заголовок 'Профиль'
     private final By profileHeader = By.xpath("//a[text()='Профиль']");
 
     //Кнопка 'Выход'
@@ -28,7 +29,7 @@ public class ProfilePage {
         this.driver = driver;
     }
 
-    //Метод отображения описания функционала профиля
+    @Step("Метод отображения заголовка 'Профиль'")
     public boolean isProfileHeaderVisible() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_TIMEOUT));
         wait.until(ExpectedConditions.visibilityOfElementLocated(profileHeader));
@@ -36,7 +37,7 @@ public class ProfilePage {
         return driver.findElement(profileHeader).isDisplayed();
     }
 
-    //Клик по кнопке 'Выход'
+    @Step("Клик по кнопке 'Выход'")
     public SignInPage clickLogOutButton() {
         WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(DEFAULT_TIMEOUT));
         wait.until(ExpectedConditions.visibilityOfElementLocated(logOutButton));
@@ -46,7 +47,7 @@ public class ProfilePage {
         return new SignInPage(driver);
     }
 
-    //Клик по кнопке 'Конструктор'
+    @Step("Клик по кнопке 'Конструктор'")
     public MainPage clickConstructorButton() {
         WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(DEFAULT_TIMEOUT));
         wait.until(ExpectedConditions.visibilityOfElementLocated(constructorButton));
@@ -56,7 +57,7 @@ public class ProfilePage {
         return new MainPage(driver);
     }
 
-    //Клик по логотипу
+    @Step("Клик по логотипу")
     public MainPage clickLogo() {
         WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(DEFAULT_TIMEOUT));
         wait.until(ExpectedConditions.visibilityOfElementLocated(logo));
@@ -65,9 +66,4 @@ public class ProfilePage {
 
         return new MainPage(driver);
     }
-
-
-
-
-
 }

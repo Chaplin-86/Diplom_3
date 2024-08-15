@@ -1,5 +1,6 @@
 package pageobjects;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -34,11 +35,13 @@ public class SignUpPage {
     //Кнопка 'Войти'
     private final By signInButton = By.xpath("//a[text()='Войти']");
 
+    private static final String INVALID_PASSWORD = "pass";
+
     public SignUpPage(WebDriver driver) {
         this.driver = driver;
     }
 
-    //Метод обнаружения заголовка 'Регистрация'
+    @Step("Метод обнаружения заголовка 'Регистрация'")
     private boolean isSignUpHeaderVisible() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_TIMEOUT));
         wait.until(ExpectedConditions.visibilityOfElementLocated(signUpHeader));
@@ -46,42 +49,50 @@ public class SignUpPage {
         return driver.findElement(signUpHeader).isDisplayed();
     }
 
-    //Заполнение поля 'Имя'
+    @Step("Заполнение поля 'Имя'")
     public SignUpPage enterName(String name) {
         driver.findElement(nameField).sendKeys(name);
 
         return this;
     }
 
-    //Заполнение поля 'Email'
+    @Step("Заполнение поля 'Email'")
     public SignUpPage enterEmail(String email) {
         driver.findElement(emailField).sendKeys(email);
 
         return this;
     }
 
-    //Заполнение поля 'Пароль'
+    @Step("Заполнение поля 'Пароль'")
     public SignUpPage enterPassword(String password) {
         driver.findElement(passwordField).sendKeys(password);
 
         return this;
     }
 
-    //Клик по кнопке 'Зарегистрироваться'
+    @Step("Заполнение поля 'Пароль' невалидным значением меньше шести символов")
+    public SignUpPage enterInvalidPassword() {
+         driver.findElement(passwordField).sendKeys(INVALID_PASSWORD);
+
+         return this;
+
+    }
+
+    @Step("Клик по кнопке 'Зарегистрироваться'")
     public SignUpPage clickSignUpButton() {
         driver.findElement(signUpButton).click();
 
         return this;
     }
 
-    // Клик по кнопке 'Войти'
+    @Step("Клик по кнопке 'Войти'")
     public SignInPage clickSignInButton() {
         driver.findElement(signInButton).click();
 
         return new SignInPage(driver);
     }
 
-    //Метод заполнения полей 'Имя', 'Email', 'Пароль' при регистрации
+    @Step("Метод заполнения полей 'Имя', 'Email', 'Пароль' при регистрации")
     public SignInPage signUp(String name, String email, String password){
 
         isSignUpHeaderVisible();
@@ -93,7 +104,20 @@ public class SignUpPage {
         return new SignInPage(driver);
     }
 
-    //Метод получения сообщения об ошибке при использовании невалидного пароля
+    @Step("Метод регистрации пользователя с невалидным паролем")
+    public SignUpPage signUpWithInvalidPassword(String name, String email) {
+
+        isSignUpHeaderVisible();
+        enterName(name);
+        enterEmail(email);
+        enterInvalidPassword();
+        clickSignUpButton();
+
+        return this;
+
+    }
+
+    @Step("Метод получения сообщения об ошибке при использовании невалидного пароля")
     public String invalidPasswordMessage() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_TIMEOUT));
         WebElement passwordErrorMessageElement = wait.until(ExpectedConditions.visibilityOfElementLocated(passwordErrorMessage));

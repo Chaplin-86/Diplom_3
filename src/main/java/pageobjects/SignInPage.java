@@ -1,5 +1,6 @@
 package pageobjects;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.By;
@@ -40,7 +41,7 @@ public class SignInPage {
         this.driver = driver;
     }
 
-    //Метод обнаружения заголовка 'Вход'
+    @Step("Метод обнаружения заголовка 'Вход'")
     public boolean isSignInHeaderVisible() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_TIMEOUT));
         wait.until(ExpectedConditions.visibilityOfElementLocated(signInHeader));
@@ -48,28 +49,28 @@ public class SignInPage {
         return driver.findElement(signInHeader).isDisplayed();
     }
 
-    //Клик по кнопке 'Личный кабинет'
+    @Step("Клик по кнопке 'Личный кабинет'")
     public SignInPage clickProfileButton() {
         driver.findElement(profileButton).click();
 
         return this;
     }
 
-    //Заполнение поля 'Email'
+    @Step("Заполнение поля 'Email'")
     public SignInPage enterEmail(String email) {
         driver.findElement(emailField).sendKeys(email);
 
         return this;
     }
 
-    //Заполнение поля 'Пароль'
+    @Step("Заполнение поля 'Пароль'")
     public SignInPage enterPassword(String password) {
         driver.findElement(passwordField).sendKeys(password);
 
         return this;
     }
 
-    //Клик по кнопке 'Войти'
+    @Step("Клик по кнопке 'Войти'")
     public SignInPage clickSignInButton() {
         WebElement element = driver.findElement(signInButton);
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
@@ -79,7 +80,7 @@ public class SignInPage {
         return this;
     }
 
-   // Клик по кнопке 'Зарегистрироваться'
+   @Step("Клик по кнопке 'Зарегистрироваться'")
     public SignUpPage clickSignUpButton() {
         WebElement element = driver.findElement(signUpButton);
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
@@ -88,7 +89,7 @@ public class SignInPage {
         return new SignUpPage(driver);
     }
 
-    //Клик по кнопке 'Восстановить пароль'
+    @Step("Клик по кнопке 'Восстановить пароль'")
     public ResetPasswordPage clickResetPasswordButton() {
 
         WebElement element = driver.findElement(resetPasswordButton);
@@ -99,7 +100,7 @@ public class SignInPage {
         return new ResetPasswordPage(driver);
     }
 
-    //Метод авторизации при нажатии кнопки 'Войти в аккаунт' на главной странице
+    @Step("Метод авторизации при нажатии кнопки 'Войти в аккаунт' на главной странице")
     public MainPage signIn(String email, String password){
 
         isSignInHeaderVisible();

@@ -1,6 +1,7 @@
 package pageobjects;
 
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -48,7 +49,7 @@ public class MainPage {
         this.driver = driver;
     }
 
-    //Метод нажатия на кнопку 'Личный кабинет' неавторизованным пользователем
+    @Step("Метод нажатия на кнопку 'Личный кабинет' неавторизованным пользователем")
        public SignInPage clickProfileButton() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_TIMEOUT));
         wait.until(ExpectedConditions.elementToBeClickable(profileButton));
@@ -58,7 +59,7 @@ public class MainPage {
         return new SignInPage(driver);
     }
 
-    //Метод нажатия на кнопку 'Личный кабинет' авторизованным пользованием
+    @Step("Метод нажатия на кнопку 'Личный кабинет' авторизованным пользованием")
     public ProfilePage clickProfileButtonAuth() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_TIMEOUT));
         wait.until(ExpectedConditions.elementToBeClickable(profileButton));
@@ -69,7 +70,7 @@ public class MainPage {
     }
 
 
-    //Метод нажатия на кнопку 'Войти в аккаунт'
+    @Step("Метод нажатия на кнопку 'Войти в аккаунт'")
     public SignInPage clickLoginButton() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_TIMEOUT));
         wait.until(ExpectedConditions.elementToBeClickable(logInButton));
@@ -78,6 +79,7 @@ public class MainPage {
         return new SignInPage(driver);
     }
 
+    @Step("Метод проверки видимости кнопки 'Оформить заказ'")
     public boolean isOrderButtonVisible() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_TIMEOUT));
         wait.until(ExpectedConditions.visibilityOfElementLocated(orderButton));
@@ -85,6 +87,7 @@ public class MainPage {
         return driver.findElement(orderButton).isDisplayed();
     }
 
+    @Step("Метод проверки видимости заголовка 'Соберите бургер'")
     public boolean isConstructorHeaderVisible(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_TIMEOUT));
         wait.until(ExpectedConditions.visibilityOfElementLocated(constructorHeader));
@@ -92,7 +95,7 @@ public class MainPage {
         return driver.findElement(constructorHeader).isDisplayed();
     }
 
-    //Метод нажатия на вкладку 'Булки'
+    @Step("Метод нажатия на вкладку 'Булки'")
     public MainPage clickBunsTab() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_TIMEOUT));
         wait.until(ExpectedConditions.elementToBeClickable(bunTab));
@@ -101,7 +104,7 @@ public class MainPage {
         return this;
     }
 
-    //Метод нажатия на вкладку 'Соусы'
+    @Step("Метод нажатия на вкладку 'Соусы'")
     public MainPage clickSauceTab() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_TIMEOUT));
         wait.until(ExpectedConditions.elementToBeClickable(sauceTab));
@@ -111,7 +114,7 @@ public class MainPage {
 
     }
 
-    //Метод нажатия на вкладку 'Начинки'
+    @Step("Метод нажатия на вкладку 'Начинки'")
     public MainPage clickFillingTab() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_TIMEOUT));
         wait.until(ExpectedConditions.elementToBeClickable(fillingTab));
@@ -121,7 +124,7 @@ public class MainPage {
 
     }
 
-    //Переход на вкладку 'Булки'
+    @Step("Переход на вкладку 'Булки'")
     public boolean isBubsVisible() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_TIMEOUT));
         wait.until(ExpectedConditions.visibilityOfElementLocated(buns));
@@ -130,7 +133,7 @@ public class MainPage {
 
     }
 
-    //Переход на вкладку 'Соусы'
+    @Step("Переход на вкладку 'Соусы'")
     public boolean isSauceVisible() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_TIMEOUT));
         wait.until(ExpectedConditions.visibilityOfElementLocated(sauce));
@@ -139,7 +142,7 @@ public class MainPage {
 
     }
 
-    //Переход на вкладку 'Начинки'
+    @Step("Переход на вкладку 'Начинки'")
     public boolean isFillingVisible() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_TIMEOUT));
         wait.until(ExpectedConditions.visibilityOfElementLocated(filling));
@@ -147,7 +150,4 @@ public class MainPage {
         return driver.findElement(filling).isDisplayed();
 
     }
-
-
-
 }

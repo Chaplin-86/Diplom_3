@@ -1,5 +1,6 @@
 package pageobjects;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -12,7 +13,7 @@ public class ResetPasswordPage {
         this.driver = driver;
     }
 
-    //Клик по кнопке 'Войти'
+    @Step("Клик по кнопке 'Войти'")
     public SignInPage clickSignInButton() {
         driver.findElement(signInButton).click();
 

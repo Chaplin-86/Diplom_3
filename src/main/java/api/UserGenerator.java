@@ -7,4 +7,5 @@ public class UserGenerator {
         return new User(RandomStringUtils.randomAlphanumeric(10) + "@yandex.ru", RandomStringUtils.randomAlphanumeric(10), RandomStringUtils.randomAlphanumeric(10));
     }
 
+
 }
