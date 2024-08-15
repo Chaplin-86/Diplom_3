@@ -1,0 +1,17 @@
+-------------------------------------------------------------------------------
+Test set: ConstructorTests
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 34.619 s <<< FAILURE! - in ConstructorTests
+goToBunTabTest(ConstructorTests)  Time elapsed: 17.217 s  <<< ERROR!
+org.openqa.selenium.ElementClickInterceptedException: 
+element click intercepted: Element <div class="tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect">...</div> is not clickable at point (100, 155). Other element would receive the click: <div style="display: flex;">...</div>
+  (Session info: chrome=126.0.6478.2379)
+Build info: version: '4.18.1', revision: 'b1d3319b48'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.22'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [2445fe7cfa7a708aef235441a622b4e5, clickElement {id=f.8355C340F6897DCC1B85555E441A3704.d.3252CFF9F4AA5A69B1CE0346F1D931CC.e.57}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 126.0.6478.2379, chrome: {chromedriverVersion: 126.0.6478.182 (5b5d8292ddf..., userDataDir: C:\Windows\SystemTemp\scope...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59335}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59335/devtoo..., se:cdpVersion: 126.0.6478.2379, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (2445fe7cfa7a708aef235441a622b4e5)] -> xpath: .//div[span[text()='Булки']]]
+Session ID: 2445fe7cfa7a708aef235441a622b4e5
+	at ConstructorTests.goToBunTabTest(ConstructorTests.java:23)
+
