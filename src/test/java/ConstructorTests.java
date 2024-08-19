@@ -15,14 +15,15 @@ public class ConstructorTests {
     @Test
     @DisplayName("Проверка перехода к разделу 'Булки'")
     public void goToBunTabTest() {
-        WebDriver driver = driverRule.getDriver();
+        WebDriver driver = DriverRule.getDriver();
         driver.get(BASE_URL);
 
         new MainPage(driver)
-                .clickSauceTab()
-                .clickBunsTab();
+                .clickFillingTab();
 
-        Boolean actual = new MainPage(driver).isBubsVisible();
+        Boolean actual = new MainPage(driver)
+                .clickBunsTab()
+                .isBunsVisible();
 
         System.out.println(actual);
 
@@ -32,13 +33,13 @@ public class ConstructorTests {
     @Test
     @DisplayName("Проверка перехода к разделу 'Соусы'")
     public void goToSauceTabTest() {
-        WebDriver driver = driverRule.getDriver();
+        WebDriver driver = DriverRule.getDriver();
         driver.get(BASE_URL);
 
-        new MainPage(driver)
-                .clickSauceTab();
 
-        Boolean actual = new MainPage(driver).isSauceVisible();
+        Boolean actual = new MainPage(driver)
+                .clickSauceTab()
+                .isSauceVisible();
 
         System.out.println(actual);
     }
@@ -46,7 +47,7 @@ public class ConstructorTests {
     @Test
     @DisplayName("Проверка перехода к разделу 'Начинки'")
     public void goToFillingTabTest() {
-        WebDriver driver = driverRule.getDriver();
+        WebDriver driver = DriverRule.getDriver();
         driver.get(BASE_URL);
 
         new MainPage(driver)

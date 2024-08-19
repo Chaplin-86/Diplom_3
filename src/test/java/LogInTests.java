@@ -48,7 +48,7 @@ public class LogInTests {
     @Test
     @DisplayName("Вход по кнопке «Войти в аккаунт» на главной странице")
     public void signInViaLoginButtonTest() {
-        WebDriver driver = driverRule.getDriver();
+        WebDriver driver = DriverRule.getDriver();
         driver.get(BASE_URL);
 
         new MainPage(driver)
@@ -64,7 +64,7 @@ public class LogInTests {
     @Test
     @DisplayName("Вход через кнопку «Личный кабинет»")
     public void signInViaProfileButtonTest() {
-        WebDriver driver = driverRule.getDriver();
+        WebDriver driver = DriverRule.getDriver();
         driver.get(BASE_URL);
 
         new MainPage(driver)
@@ -81,7 +81,7 @@ public class LogInTests {
     @Test
     @DisplayName("Вход через кнопку 'Войти' в форме регистрации")
     public void signInViaSignUpPageTest() {
-        WebDriver driver = driverRule.getDriver();
+        WebDriver driver = DriverRule.getDriver();
         driver.get(BASE_URL);
 
         new MainPage(driver)
@@ -102,7 +102,7 @@ public class LogInTests {
     @Test
     @DisplayName("Вход через кнопку 'Войти' в форме восстановления пароля")
     public void signInViaResetPasswordPage() {
-        WebDriver driver = driverRule.getDriver();
+        WebDriver driver = DriverRule.getDriver();
         driver.get(BASE_URL);
 
         new MainPage(driver)

@@ -46,7 +46,7 @@ public class PersonalProfileTests {
     @Test
     @DisplayName("Переход по кнопке 'Личный кабинет' авторизованным пользователем")
     public void clickProfileButtonAuthTest() {
-        WebDriver driver = driverRule.getDriver();
+        WebDriver driver = DriverRule.getDriver();
         driver.get(BASE_URL);
 
         new MainPage(driver)
@@ -67,7 +67,7 @@ public class PersonalProfileTests {
     @Test
     @DisplayName("Переход по кнопке 'Личный кабинет' неавторизованным пользователем")
     public void clickProfileButtonNotAuthTest() {
-        WebDriver driver = driverRule.getDriver();
+        WebDriver driver = DriverRule.getDriver();
         driver.get(BASE_URL);
 
         new MainPage(driver)
@@ -83,7 +83,7 @@ public class PersonalProfileTests {
     @Test
     @DisplayName("Переход в конструктор по клику на кнопку 'Конструктор'")
     public void clickConstructorButtonTest() {
-        WebDriver driver = driverRule.getDriver();
+        WebDriver driver = DriverRule.getDriver();
         driver.get(BASE_URL);
 
         new MainPage(driver)
@@ -106,7 +106,7 @@ public class PersonalProfileTests {
     @Test
     @DisplayName("Переход в конструктор по клику на логотип")
     public void clickLogoTest() {
-        WebDriver driver = driverRule.getDriver();
+        WebDriver driver = DriverRule.getDriver();
         driver.get(BASE_URL);
 
         new MainPage(driver)
@@ -129,7 +129,7 @@ public class PersonalProfileTests {
     @Test
     @DisplayName("Выход из аккаунта по клику на кнопку 'Выход' в личном кабинете")
     public void logOutTest() {
-        WebDriver driver = driverRule.getDriver();
+        WebDriver driver = DriverRule.getDriver();
         driver.get(BASE_URL);
 
         new MainPage(driver)

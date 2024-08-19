@@ -45,7 +45,7 @@ public class SignUpTests {
     @Test
     @DisplayName("Проверка успешной регистрации")
     public void checkSuccessfulRegistrationTest() {
-        WebDriver driver = driverRule.getDriver();
+        WebDriver driver = DriverRule.getDriver();
         driver.get(BASE_URL);
 
         new MainPage(driver)
@@ -57,8 +57,10 @@ public class SignUpTests {
         new SignUpPage(driver)
                 .signUp(user.getName(), user.getEmail(), user.getPassword());
 
-        Boolean actual = new SignInPage(driver).isSignInHeaderVisible();;
+        Boolean actual = new SignInPage(driver).isSignInHeaderVisible();
         System.out.println(actual);
+
+
 
     }
 
@@ -66,7 +68,7 @@ public class SignUpTests {
     @DisplayName("Проверка отображения сообщения об ошибке при вводе невалидного пароля")
     @Description("Невалидный пароль меньше шести символов")
     public void checkInvalidPasswordMessageVisibility() {
-        WebDriver driver = driverRule.getDriver();
+        WebDriver driver = DriverRule.getDriver();
         driver.get(BASE_URL);
 
         new MainPage(driver)

@@ -35,14 +35,15 @@ public class MainPage {
     //Вкладка "Начинки"
     private final By fillingTab = By.xpath(".//div[span[text()='Начинки']]");
 
-    //Заголовок "Булки"
-    private final By buns = By.xpath(".//h2[text()='Булки']");
+    //Вкладка "Булки", когда активна
+    private final By buns = By.xpath(".//div[contains(span/text(),'Булки') and contains(@class,'current')]");
 
-    //Заголовок "Соусы"
-    private final By sauce = By.xpath(".//h2[text()='Соусы']");
+    //Вкладка "Соусы", когда активна
+    private final By sauce = By.xpath(".//div[contains(span/text(), 'Соусы') and contains(@class, 'current')]");
 
-    //Заголовок "Начинки"
-    private final By filling = By.xpath(".//h2[text()='Начинки']");
+    //Вкладка "Начинки", когда активна
+    private final By filling = By.xpath(".//div[contains(span/text(), 'Начинки') and contains(@class, 'current')]");
+
 
 
     public MainPage(WebDriver driver) {
@@ -97,8 +98,6 @@ public class MainPage {
 
     @Step("Метод нажатия на вкладку 'Булки'")
     public MainPage clickBunsTab() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_TIMEOUT));
-        wait.until(ExpectedConditions.elementToBeClickable(bunTab));
 
         driver.findElement(bunTab).click();
         return this;
@@ -106,8 +105,6 @@ public class MainPage {
 
     @Step("Метод нажатия на вкладку 'Соусы'")
     public MainPage clickSauceTab() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_TIMEOUT));
-        wait.until(ExpectedConditions.elementToBeClickable(sauceTab));
 
         driver.findElement(sauceTab).click();
         return this;
@@ -116,8 +113,6 @@ public class MainPage {
 
     @Step("Метод нажатия на вкладку 'Начинки'")
     public MainPage clickFillingTab() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_TIMEOUT));
-        wait.until(ExpectedConditions.elementToBeClickable(fillingTab));
 
         driver.findElement(fillingTab).click();
         return this;
@@ -125,7 +120,7 @@ public class MainPage {
     }
 
     @Step("Переход на вкладку 'Булки'")
-    public boolean isBubsVisible() {
+    public boolean isBunsVisible() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_TIMEOUT));
         wait.until(ExpectedConditions.visibilityOfElementLocated(buns));
 
