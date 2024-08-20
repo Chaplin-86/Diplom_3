@@ -18,7 +18,6 @@ public class SignUpTests {
     private User user;
     private UserClient userClient;
     private String accessToken;
-    private DriverRule driverRule = new DriverRule();
 
     @Rule
     public DriverRule driver = new DriverRule();
@@ -59,8 +58,6 @@ public class SignUpTests {
 
         Boolean actual = new SignInPage(driver).isSignInHeaderVisible();
         System.out.println(actual);
-
-
 
     }
 

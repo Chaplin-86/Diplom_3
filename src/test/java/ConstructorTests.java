@@ -7,7 +7,6 @@ import org.openqa.selenium.WebDriver;
 import static praktikum.EnvConfig.BASE_URL;
 
 public class ConstructorTests {
-    private DriverRule driverRule = new DriverRule();
 
     @Rule
     public DriverRule driver = new DriverRule();

@@ -21,7 +21,6 @@ public class LogInTests {
     private User user;
     private UserClient userClient;
     private String accessToken;
-    private DriverRule driverRule = new DriverRule();
 
     @Rule
     public DriverRule driver = new DriverRule();
