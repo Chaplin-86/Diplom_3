@@ -16,8 +16,6 @@ import static praktikum.EnvConfig.BASE_URL;
 
 public class SignUpTests {
     private User user;
-    private UserClient userClient;
-    private String accessToken;
 
     @Rule
     public DriverRule driver = new DriverRule();
@@ -28,17 +26,6 @@ public class SignUpTests {
         RestAssured.baseURI = BASE_URL;
 
         user = randomUser();
-        userClient = new UserClient();
-
-        ValidatableResponse responseToCreateUser = userClient.createUser(user);
-        accessToken = responseToCreateUser.extract().path("accessToken");
-    }
-
-    @After
-    public void deleteUser() {
-        if (accessToken != null) {
-            userClient.deleteUser(accessToken);
-        }
     }
 
     @Test
