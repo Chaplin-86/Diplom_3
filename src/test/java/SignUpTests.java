@@ -1,9 +1,7 @@
 import api.User;
-import api.UserClient;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.RestAssured;
-import io.restassured.response.ValidatableResponse;
 import org.junit.*;
 import org.openqa.selenium.WebDriver;
 import pageobjects.MainPage;
