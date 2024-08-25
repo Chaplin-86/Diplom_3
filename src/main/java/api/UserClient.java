@@ -25,7 +25,7 @@ public class UserClient {
     @Step("Удаление пользователя")
     public ValidatableResponse deleteUser(String accessToken) {
         return given()
-                .auth().oauth2(accessToken.substring(accessToken.indexOf(" ") + 1))
+                .auth().oauth2(accessToken.replace("Bearer ", ""))
                 .contentType(ContentType.JSON)
                 .when()
                 .delete(USER_ENDPOINT)
