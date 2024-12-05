@@ -1,0 +1,9 @@
+api\UserGenerator.class
+pageobjects\SignUpPage.class
+pageobjects\MainPage.class
+praktikum\EnvConfig.class
+api\UserClient.class
+api\User.class
+pageobjects\ResetPasswordPage.class
+pageobjects\ProfilePage.class
+pageobjects\SignInPage.class
